@@ -1,44 +1,42 @@
 import React, {Component} from "react";
 import Question from "./Question";
+const APIURL = "https://opentdb.com/api.php?";
 
 class Quiz extends Component {
     constructor(props){
         super(props);
         this.state = {
+            isLoaded: true,
             number: 5,
             questions: []
         }
     }
 
     componentDidMount(){
-        fetch(`https://opentdb.com/api.php?amount=${this.state.number}&category=22&difficulty=medium&type=multiple`)
-        .then(response => response.json())
-        .then(data => this.setState({questions: data.results}))
+        fetch(`${APIURL}amount=${this.state.number}&category=22&difficulty=medium&type=multiple`)
+        .then(res=> res.json())
+        .then(data => {
+            this.setState({   
+                questions: data.results,
+                isLoaded: true,
+            })
+        });
     }
 
     render(){
         
-        if(this.state.questions.length){
-            console.log((this.state.questions[0].question))
+        if(!this.state.isLoaded){
+            return <div>Loading...</div>
+        } else {
+            let questions = this.state.questions.map((item, index) =>
+            //PLease change item index
+            <h4 key={index}>{item.question}</h4>)
+            return(
+                <div>
+                {questions}
+                </div>
+            )
         }
-        
-
-
-
-        const questions= (this.state.questions);
-        console.log(typeof questions); //This returns Object :(
-        console.log(questions);
-        // const questions = this.state.questions.map((q, index) => (
-        //     <Question key={index}
-        //     {...q}
-        //     />
-        // ))
-        return(
-            <div>
-                <h1>hi</h1>
-                
-            </div>
-        )
     }
 }
 
