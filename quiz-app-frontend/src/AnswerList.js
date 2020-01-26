@@ -5,7 +5,11 @@ class AnswerList extends Component {
 
         return(
             <div>
-                {this.props.answers}
+                {this.props.answers.map((answer) => 
+                <li key={answer}>
+                    {answer}
+                </li>
+                )}
             </div>
         )
     }

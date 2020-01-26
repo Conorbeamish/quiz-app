@@ -15,17 +15,14 @@ class Question extends Component {
             return a;
         }
         
-        const answers = this.props.incorrect_answers;
+        let answers = this.props.incorrect_answers;
         answers.push(this.props.correct_answer);
         shuffle(answers);
 
         return(
             <div>
                 <p>{this.props.question}</p>
-                {/* {answers.map(answers) => (
-                    <AnswerList answers={answers} correct_answer={correct_answer}/>
-                )} */}
-                
+                <AnswerList answers={answers} correct_answer={this.props.correct_answer}/>
             </div>
         )
     }
