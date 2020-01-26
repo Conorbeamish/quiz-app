@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Question from "./Question";
 const APIURL = "https://opentdb.com/api.php?";
 
 
@@ -31,13 +32,20 @@ class QuestionList extends Component {
         if(!this.state.isLoaded){
             return <div>Loading...</div>
         } else {
-            let questions = this.state.questions.map((item, index) =>
+            let questions = this.state.questions.map((item) =>
             //PLease change item index
-            <h4 key={index}>{item.question}</h4>)
+            <div key = {item.question} answer={item.correct_answer}>
+                <h4> {item.question}</h4>
+                {item.incorrect_answers.map((answer)=> 
+                    <li key = {answer}>{answer}</li>
+                )}
+            </div>
+            )
             return(
-                <div>
-                {questions}
-                </div>
+                <Question questions = {questions}/>
+                // <div>
+                // {questions}
+                // </div>
             )
         }
     }

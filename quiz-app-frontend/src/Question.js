@@ -1,8 +1,14 @@
 import React, {Component} from "react";
 
-const Question = ({data}) =>
-    <li>
-        {data}
-    </li>
+class Question extends Component {
+    render(){
+
+        return(
+            <div>
+                {this.props.questions}
+            </div>
+        )
+    }
+}
 
 export default Question;
