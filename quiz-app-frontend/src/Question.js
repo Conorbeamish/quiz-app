@@ -5,7 +5,7 @@ class Question extends Component {
 
         return(
             <div>
-                {this.props.questions}
+                {this.props.question}
             </div>
         )
     }

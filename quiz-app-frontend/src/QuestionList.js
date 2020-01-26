@@ -27,25 +27,36 @@ class QuestionList extends Component {
         });
     }
 
+    //Adds correct answer and shuffle array of answers
+    // addShuffleAnswers(array, answer){
+    // array.push(answer);
+    // let i = array.length - 1;
+    // for (; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * (i + 1));
+    //     const temp = array[i];
+    //     array[i] = array[j];
+    //     array[j] = temp;
+    // }
+    // return array;
+    // }
+
     render(){
         
         if(!this.state.isLoaded){
             return <div>Loading...</div>
         } else {
-            let questions = this.state.questions.map((item) =>
-            //PLease change item index
-            <div key = {item.question} answer={item.correct_answer}>
-                <h4> {item.question}</h4>
-                {item.incorrect_answers.map((answer)=> 
-                    <li key = {answer}>{answer}</li>
-                )}
-            </div>
-            )
             return(
-                <Question questions = {questions}/>
-                // <div>
-                // {questions}
-                // </div>
+                <div>
+                    {this.state.questions.map(
+                       ({question, correct_answer, incorrect_answers}) =>
+                       (<Question 
+                            question={question} 
+                            correct_answer={correct_answer} 
+                            incorrect_answers={incorrect_answers} 
+                            key={question} 
+                        />)
+                    )}
+                </div>
             )
         }
     }
