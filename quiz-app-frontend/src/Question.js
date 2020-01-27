@@ -1,11 +1,23 @@
 import React, {Component} from "react";
 import AnswerList from "./AnswerList";
+import Answer from "./Answer";
 
 class Question extends Component {
     constructor(props){
         super(props);
         this.state = {
-            
+            answered: false,
+            correct: false
+        }
+        this.checkAnswer = this.checkAnswer.bind(this)
+    }
+
+    checkAnswer = (e) => {
+        this.setState({answered: true})
+        if(e.target.name === this.props.correct_answer){
+            this.setState({
+                correct: true
+            })
         }
     }
 
@@ -26,12 +38,29 @@ class Question extends Component {
         answers.push(this.props.correct_answer);
         shuffle(answers);
 
-        return(
-            <div>
-                <h4>{this.props.question}</h4>
-                <AnswerList answers={answers} correct_answer={this.props.correct_answer}/>
-            </div>
-        )
+        if(!this.state.answered){
+            return(
+                <div>
+                    <h4>{this.props.question}</h4>
+                    <AnswerList 
+                        answers={answers} 
+                        correct_answer={this.props.correct_answer}
+                        checkAnswer = {this.checkAnswer}
+                    />
+                </div>
+            )
+        } else{
+            return(
+                <div>
+                    <h4>{this.props.question}</h4>
+                    <Answer 
+                        correct_answer={this.props.correct_answer}
+                        correct={this.state.correct}
+                    />
+                </div> 
+            )
+        }
+        
     }
 }
 

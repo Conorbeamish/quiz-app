@@ -7,9 +7,9 @@ class QuestionList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isLoaded: true,
             number: 5,
-            questions: []
+            questions: [],
+            score: 0
         }
     };
 
@@ -22,7 +22,6 @@ class QuestionList extends Component {
         .then(data => {
             this.setState({   
                 questions: data.results,
-                isLoaded: true,
             })
         });
     }
@@ -32,7 +31,7 @@ class QuestionList extends Component {
     }
 
     render(){
-        if(!this.state.isLoaded){
+        if(!this.state.questions){
             return <div>Loading...</div>
         } else {
             return(

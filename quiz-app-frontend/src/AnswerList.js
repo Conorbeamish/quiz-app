@@ -6,7 +6,7 @@ class AnswerList extends Component {
         return(
             <div>
                 {this.props.answers.map((answer) => 
-                <button key={answer}>
+                <button name={answer} key={answer} onClick={this.props.checkAnswer} >
                     {answer}
                 </button>
                 )}

@@ -7,7 +7,7 @@ class Quiz extends Component {
         super(props);
         this.state = {
             numOfQuestions: 5,
-            category: "any",
+            category: "9",
             difficulty: "easy",
             displayQuestions: false
         }

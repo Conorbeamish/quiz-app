@@ -15,7 +15,7 @@ class QuizForm extends Component{
                 <label>
                     Category
                     <select name="category" value={this.props.category} onChange={this.props.handleChange}>
-			            <option value="any">Any Category</option>
+			            {/* <option value="any">Any Category</option> */}
                         <option value="9">General Knowledge</option>
                         <option value="10">Entertainment: Books</option>
                         <option value="11">Entertainment: Film</option>
