@@ -9,7 +9,6 @@ class QuestionList extends Component {
         this.state = {
             number: 5,
             questions: [],
-            score: 0
         }
     };
 

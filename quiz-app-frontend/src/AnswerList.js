@@ -1,18 +1,15 @@
-import React, {Component} from "react";
+import React from "react";
 
-class AnswerList extends Component {
-    render(){
-
-        return(
-            <div>
-                {this.props.answers.map((answer) => 
-                <button name={answer} key={answer} onClick={this.props.checkAnswer} >
-                    {answer}
-                </button>
-                )}
-            </div>
-        )
-    }
+const AnswerList = props => {
+    return(
+        <div>
+            {props.answers.map((answer) => 
+            <button name={answer} key={answer} onClick={props.checkAnswer}>
+                {answer}
+            </button>
+            )}
+        </div>
+    )
 }
 
 
