@@ -11,9 +11,9 @@ class QuestionList extends Component {
             number: 5,
             questions: []
         }
-    }
+    };
 
-    componentDidMount(){
+    getQuestions = () => {
         let amount = this.props.numOfQuestions;
         let category = this.props.category;
         let difficulty = this.props.difficulty;
@@ -27,8 +27,11 @@ class QuestionList extends Component {
         });
     }
 
+    componentDidMount(){
+        this.getQuestions();
+    }
+
     render(){
-        
         if(!this.state.isLoaded){
             return <div>Loading...</div>
         } else {

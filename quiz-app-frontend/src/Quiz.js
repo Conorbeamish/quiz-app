@@ -6,35 +6,36 @@ class Quiz extends Component {
     constructor(props){
         super(props);
         this.state = {
-            numOfQuestions: 10,
+            numOfQuestions: 5,
             category: "9",
-            difficulty: "easy"
+            difficulty: "easy",
+            displayQuestions: false
         }
-        this.updateQuizState =this.updateQuizState.bind(this);
+        this.handleChange =this.handleChange.bind(this);
         this.handleSubmit =this.handleSubmit.bind(this);
     }
 
-    updateQuizState(e){
-       
+    handleChange(e){
         this.setState({numOfQuestions: e.target.value});
         console.log("state change");
     }
 
-    handleSubmit(e){
-        console.log("Submit sent");
-        alert(`Submit sent ${e}`)
-        e.preventDefault();
+    handleSubmit = () => {
+        this.setState({displayQuestions: !this.state.displayQuestions})
     }
 
     
 
     render(){
-        return(
-            <div>
-                <QuizForm updateQuizState = {this.updateQuizState} handleSubmit={this.handleSubmit} numOfQuestions={this.state.numOfQuestions}/>
+        if (this.state.displayQuestions){
+            return(
                 <QuestionList numOfQuestions={this.state.numOfQuestions} category={this.state.category} difficulty={this.state.difficulty}/>
-            </div>
-        )
+            )
+        } else {
+            return(
+                <QuizForm handleChange= {this.handleChange} handleSubmit={this.handleSubmit} numOfQuestions={this.state.numOfQuestions}/>
+            )
+        }
     }
 }
 

@@ -3,10 +3,10 @@ import React, {Component} from "react";
 class QuizForm extends Component{
     render(){
         return(
-            <form onSubmit= {this.handleSubmit}>
+            <form onSubmit = {this.props.handleSubmit}>
                 <label>
                     Number of Questions
-                    <select>
+                    <select value={this.props.numOfQuestions} onChange={this.props.handleChange}>
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>

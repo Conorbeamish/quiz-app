@@ -2,6 +2,13 @@ import React, {Component} from "react";
 import AnswerList from "./AnswerList";
 
 class Question extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            
+        }
+    }
+
     render(){
 
         function shuffle(a) {
@@ -21,7 +28,7 @@ class Question extends Component {
 
         return(
             <div>
-                <p>{this.props.question}</p>
+                <h4>{this.props.question}</h4>
                 <AnswerList answers={answers} correct_answer={this.props.correct_answer}/>
             </div>
         )

@@ -6,13 +6,14 @@ class AnswerList extends Component {
         return(
             <div>
                 {this.props.answers.map((answer) => 
-                <li key={answer}>
+                <button key={answer}>
                     {answer}
-                </li>
+                </button>
                 )}
             </div>
         )
     }
 }
+
 
 export default AnswerList
