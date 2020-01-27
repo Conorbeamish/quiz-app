@@ -7,7 +7,7 @@ class Quiz extends Component {
         super(props);
         this.state = {
             numOfQuestions: 5,
-            category: "9",
+            category: "any",
             difficulty: "easy",
             displayQuestions: false
         }
@@ -16,24 +16,31 @@ class Quiz extends Component {
     }
 
     handleChange(e){
-        this.setState({numOfQuestions: e.target.value});
-        console.log("state change");
+        this.setState({[e.target.name]: e.target.value});
     }
 
     handleSubmit = () => {
         this.setState({displayQuestions: !this.state.displayQuestions})
     }
 
-    
-
     render(){
         if (this.state.displayQuestions){
             return(
-                <QuestionList numOfQuestions={this.state.numOfQuestions} category={this.state.category} difficulty={this.state.difficulty}/>
+                <QuestionList 
+                    numOfQuestions={this.state.numOfQuestions} 
+                    category={this.state.category} 
+                    difficulty={this.state.difficulty}
+                />
             )
         } else {
             return(
-                <QuizForm handleChange= {this.handleChange} handleSubmit={this.handleSubmit} numOfQuestions={this.state.numOfQuestions}/>
+                <QuizForm 
+                    handleChange= {this.handleChange} 
+                    handleSubmit={this.handleSubmit} 
+                    numOfQuestions={this.state.numOfQuestions}
+                    category={this.state.category} 
+                    difficulty={this.state.difficulty}
+                />
             )
         }
     }
