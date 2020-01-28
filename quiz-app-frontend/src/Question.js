@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import AnswerList from "./AnswerList";
 import Answer from "./Answer";
+import he from 'he';
 
 class Question extends Component {
     constructor(props){
@@ -41,7 +42,7 @@ class Question extends Component {
         if(!this.state.answered){
             return(
                 <div>
-                    <h4>{this.props.question}</h4>
+                    <h4>{he.decode(this.props.question)}</h4>
                     <AnswerList 
                         answers={answers} 
                         correct_answer={this.props.correct_answer}
@@ -52,7 +53,7 @@ class Question extends Component {
         } else{
             return(
                 <div>
-                    <h4>{this.props.question}</h4>
+                    <h4>{he.decode(this.props.question)}</h4>
                     <Answer 
                         correct_answer={this.props.correct_answer}
                         correct={this.state.correct}

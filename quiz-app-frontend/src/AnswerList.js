@@ -1,11 +1,12 @@
 import React from "react";
+import he from 'he';
 
 const AnswerList = props => {
     return(
         <div>
             {props.answers.map((answer) => 
             <button name={answer} key={answer} onClick={props.checkAnswer}>
-                {answer}
+                {he.decode(answer)}
             </button>
             )}
         </div>
