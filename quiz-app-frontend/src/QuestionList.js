@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import Question from "./Question";
 
-
-
 class QuestionList extends Component {
     constructor(props){
         super(props);
@@ -18,6 +16,20 @@ class QuestionList extends Component {
         fetch(APIURL)
         .then(res=> res.json())
         .then(data => {
+            data.results = data.results.map(result => {
+                Object.keys(result).forEach(key => {
+                   if (typeof result[key] === "string") {
+                       result[key] = result[key].replace(/&#039;/g, "'").replace(/&quot;/g, "'").replace(/&shy;/g, "-");
+                   }else if(typeof result[key] === "object"){
+                       console.log(result[key])
+                       result[key] = result[key].map(item => {
+                           item = item.replace(/&#039;/g, "'").replace(/&quot;/g, "'").replace(/&shy;/g, "-");
+                        return item
+                       })
+                   }
+                });
+                return result;
+            });
             this.setState({   
                 questions: data.results,
             })
