@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Question from "./Question";
-const APIURL = "https://opentdb.com/api.php?";
+
 
 
 class QuestionList extends Component {
@@ -13,10 +13,9 @@ class QuestionList extends Component {
     };
 
     getQuestions = () => {
-        let amount = this.props.numOfQuestions;
-        let category = this.props.category;
-        let difficulty = this.props.difficulty;
-        fetch(`${APIURL}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`)
+        let {numOfQuestions, category, difficulty} = this.props;
+        let APIURL = `https://opentdb.com/api.php?amount=${numOfQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`
+        fetch(APIURL)
         .then(res=> res.json())
         .then(data => {
             this.setState({   
