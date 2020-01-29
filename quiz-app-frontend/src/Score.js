@@ -10,7 +10,13 @@ const Score = props => {
                 {replay}
             </div>
         )
-    }else{
+    }else if (props.questions.length === 0){
+        return(
+            <div>
+                ...Loading
+            </div>
+        )
+    } else {
         return(
             replay
         )

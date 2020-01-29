@@ -42,31 +42,27 @@ class QuestionList extends Component {
     }
 
     render(){
-        if(!this.state.questions){
-            return <div>Loading...</div>
-        } else {
-            return(
-                <div>
-                    {this.state.questions.map(
-                       ({question, correct_answer, incorrect_answers}) =>
-                       (<Question 
-                            question={question} 
-                            correct_answer={correct_answer} 
-                            incorrect_answers={incorrect_answers} 
-                            key={question} 
-                            incrementQuesAns = {this.incrementQuesAns}
-                            incrementScore = {this.incrementScore}
-                        />)
-                    )}
-                    <Score
-                        score={this.state.score}
-                        questionsAnswered={this.state.questionsAnswered}
-                        questions={this.state.questions}
-                        handleSubmit={this.props.handleSubmit}
-                    />
-                </div>
-            )
-        }
+        return(
+            <div>
+                {this.state.questions.map(
+                ({question, correct_answer, incorrect_answers}) =>
+                (<Question 
+                        question={question} 
+                        correct_answer={correct_answer} 
+                        incorrect_answers={incorrect_answers} 
+                        key={question} 
+                        incrementQuesAns = {this.incrementQuesAns}
+                        incrementScore = {this.incrementScore}
+                    />)
+                )}
+                <Score
+                    score={this.state.score}
+                    questionsAnswered={this.state.questionsAnswered}
+                    questions={this.state.questions}
+                    handleSubmit={this.props.handleSubmit}
+                />
+            </div>
+        )
     }
 }
 
