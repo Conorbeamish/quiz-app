@@ -3,6 +3,17 @@ import AnswerList from "./AnswerList";
 import Answer from "./Answer";
 import he from 'he';
 
+function shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
 class Question extends Component {
     constructor(props){
         super(props);
@@ -14,30 +25,25 @@ class Question extends Component {
     }
 
     checkAnswer = (e) => {
-        this.setState({answered: true})
+        this.setState({answered: true});
+        this.props.incrementQuesAns();
         if(e.target.name === this.props.correct_answer){
+            this.props.incrementScore();
             this.setState({
                 correct: true
             })
         }
     }
 
+    
+
     render(){
 
-        function shuffle(a) {
-            var j, x, i;
-            for (i = a.length - 1; i > 0; i--) {
-                j = Math.floor(Math.random() * (i + 1));
-                x = a[i];
-                a[i] = a[j];
-                a[j] = x;
-            }
-            return a;
+        const answers = this.props.incorrect_answers;
+        if(answers.length < 4){
+            answers.push(this.props.correct_answer);
+            shuffleArray(answers);
         }
-        
-        let answers = this.props.incorrect_answers;
-        answers.push(this.props.correct_answer);
-        shuffle(answers);
 
         if(!this.state.answered){
             return(

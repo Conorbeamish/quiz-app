@@ -1,14 +1,18 @@
 import React, {Component} from "react";
 import Question from "./Question";
+import Score from "./Score";
 
 
 class QuestionList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            number: 5,
             questions: [],
+            score: 0,
+            questionsAnswered: 1
         }
+        this.incrementScore = this.incrementScore.bind(this)
+        this.incrementQuesAns = this.incrementQuesAns.bind(this)
     };
 
     getQuestions = () => {
@@ -19,8 +23,18 @@ class QuestionList extends Component {
         .then(data => {
             this.setState({   
                 questions: data.results,
+                score: 0,
+                questionsAnswered: 0
             })
         });
+    }
+
+    incrementScore = () => {
+        this.setState({score: this.state.score + 1})
+    }
+
+    incrementQuesAns = () => {
+        this.setState({questionsAnswered: this.state.questionsAnswered + 1})
     }
 
     componentDidMount(){
@@ -40,8 +54,16 @@ class QuestionList extends Component {
                             correct_answer={correct_answer} 
                             incorrect_answers={incorrect_answers} 
                             key={question} 
+                            incrementQuesAns = {this.incrementQuesAns}
+                            incrementScore = {this.incrementScore}
                         />)
                     )}
+                    <Score
+                        score={this.state.score}
+                        questionsAnswered={this.state.questionsAnswered}
+                        questions={this.state.questions}
+                        handleSubmit={this.props.handleSubmit}
+                    />
                 </div>
             )
         }

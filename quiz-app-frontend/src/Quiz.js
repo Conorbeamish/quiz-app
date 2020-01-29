@@ -30,6 +30,7 @@ class Quiz extends Component {
                     numOfQuestions={this.state.numOfQuestions} 
                     category={this.state.category} 
                     difficulty={this.state.difficulty}
+                    handleSubmit={this.handleSubmit} 
                 />
             )
         } else {
