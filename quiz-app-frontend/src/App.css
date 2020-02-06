@@ -1,4 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,400i,700&display=swap");
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  font-family: 'Rubik', sans-serif;
 }
 
+/* #2CBBBB
+#27A0A0 */
+
+.header{
+  background: #4D4D4D;
+  color:#797979;
+}
+
+.quiz-form {
+  
+}
+
+.submit{
+  background-color:#2CBBBB;
+  font-family: 'Rubik', sans-serif;
+}

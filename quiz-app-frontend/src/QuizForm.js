@@ -2,7 +2,7 @@ import React from "react";
 
 const QuizForm = props => {
     return(
-        <form onSubmit = {props.handleSubmit}>
+        <form className="quiz-form" onSubmit = {props.handleSubmit}>
             <label>
                 Number of Questions
                 <select name="numOfQuestions" value={props.numOfQuestions} onChange={props.handleChange}>
@@ -49,7 +49,7 @@ const QuizForm = props => {
                     <option value="hard">Hard</option>
                 </select>
             </label>
-            <input type="submit" value="Submit"/>
+            <input className="submit" type="submit" value="Submit"/>
         </form>
     )
 }
