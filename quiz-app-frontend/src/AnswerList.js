@@ -5,7 +5,7 @@ const AnswerList = props => {
     return(
         <div>
             {props.answers.map((answer) => 
-            <button name={answer} key={answer} onClick={props.checkAnswer}>
+            <button className="answer" name={answer} key={answer} onClick={props.checkAnswer}>
                 {he.decode(answer)}
             </button>
             )}

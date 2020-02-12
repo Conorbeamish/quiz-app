@@ -3,17 +3,18 @@ import React from "react";
 const QuizForm = props => {
     return(
         <form className="quiz-form" onSubmit = {props.handleSubmit}>
-            <label>
-                Number of Questions
-                <select name="numOfQuestions" value={props.numOfQuestions} onChange={props.handleChange}>
+            <h4>Fill in the form below to get started...</h4>
+            <label className="form-label">
+                Number of Questions:
+                <select className="form-select" name="numOfQuestions" value={props.numOfQuestions} onChange={props.handleChange}>
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                 </select>
             </label>
-            <label>
-                Category
-                <select name="category" value={props.category} onChange={props.handleChange}>
+            <label className="form-label">
+                Category:
+                <select className="form-select"  name="category" value={props.category} onChange={props.handleChange}>
                     {/* <option value="any">Any Category</option> */}
                     <option value="9">General Knowledge</option>
                     <option value="10">Entertainment: Books</option>
@@ -41,9 +42,9 @@ const QuizForm = props => {
                     <option value="32">Entertainment: Cartoon &amp; Animations</option>
                 </select>
             </label>
-            <label>
-                Difficulty
-                <select name="difficulty" value={props.difficulty} onChange={props.handleChange}>
+            <label className="form-label">
+                Difficulty:
+                <select className="form-select" name="difficulty" value={props.difficulty} onChange={props.handleChange}>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>

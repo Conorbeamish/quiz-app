@@ -43,7 +43,7 @@ class QuestionList extends Component {
 
     render(){
         return(
-            <div>
+            <div className="question-list">
                 {this.state.questions.map(
                 ({question, correct_answer, incorrect_answers}) =>
                 (<Question 
