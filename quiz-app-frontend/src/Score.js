@@ -13,7 +13,10 @@ const Score = props => {
     }else if (props.questions.length === 0){
         return(
             <div>
+                <p>
                 ...Loading
+                </p>
+                <div className ="spinner"></div>
             </div>
         )
     } else {
