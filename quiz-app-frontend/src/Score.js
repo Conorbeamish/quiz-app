@@ -5,23 +5,27 @@ const Score = props => {
 
     if(props.questions.length === props.questionsAnswered){
         return(
-            <div>
-                <p>You Scored {props.score}/{props.questions.length}</p>
+            <div className="score">
+                <hr className="hr"></hr>
+                <p className="score-total">You Scored {props.score}/{props.questions.length}</p>
                 {replay}
             </div>
         )
     }else if (props.questions.length === 0){
         return(
             <div>
-                <p>
+                <div className="loading">
                 ...Loading
-                </p>
+                </div>
                 <div className ="spinner"></div>
             </div>
         )
     } else {
         return(
-            replay
+            <div className="score">
+                <hr className="hr"></hr>
+                {replay}
+            </div>
         )
     }
 

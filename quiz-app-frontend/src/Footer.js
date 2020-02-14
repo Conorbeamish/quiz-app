@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = props => {
     return(
-        <div className="Footer">
+        <div className="footer">
             by <a href="www.conorbeamish.com">Conor Beamish</a>
         </div>
         

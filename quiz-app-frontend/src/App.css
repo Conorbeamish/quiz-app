@@ -15,6 +15,7 @@
 .header{
   background: #4D4D4D;
   color:#797979;
+  border-bottom: px solid black;
 }
 
 .header h1{
@@ -48,7 +49,8 @@
 
 .question-list{
   max-width: 80vw;
-  margin: auto;
+  margin: 0 auto 1rem auto;
+
 }
 
 .submit{
@@ -56,6 +58,9 @@
   border: none;
   font-family: 'Rubik', sans-serif;
   padding:0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 1px 2px #4D4D4D;
 }
 
 .submit:hover{
@@ -65,17 +70,19 @@
 }
 
 .answer{
-  background-color:#2CBBBB;
-  border: none;
+  background-color: white;
+  border: solid 2px #2CBBBB;
   margin: 0 0 0.5rem 0.5rem;
   font-family: 'Rubik', sans-serif;
   padding:0.5rem;
+  letter-spacing: 1px;
+  transition: background-color 300ms;
+  box-shadow: 1px 2px #27A0A0;
 }
 
 .answer:hover{
-  background-color:#27A0A0;
+  background-color:#2CBBBB;
   cursor: pointer;
-  
 }
 
 .replay{
@@ -83,6 +90,10 @@
   border: none;
   font-family: 'Rubik', sans-serif;
   padding:0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 300ms;
+  box-shadow: 1px 2px #4D4D4D;
 }
 
 .replay:hover{
@@ -112,3 +123,48 @@
   border-bottom-color: #07d;
   animation: spinner .8s ease infinite;
 }
+
+
+.question{
+  min-height: 20vh;
+  padding-bottom: 1rem;
+  border: 1px solid #4D4D4D;
+  margin: 1rem 0 1rem 0;
+}
+
+.question-title{
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.answer-list{
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.correct{
+  padding: 0.5rem;
+  background-color: rgba(0, 230, 64, 0.5);
+  width: 80%;
+  margin: 0 auto 0 auto;;
+}
+
+.incorrect{
+  padding: 0.5rem;
+  background-color: rgba(240, 52, 52, 0.5);
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.hr {
+  border: 0.1rem solid #4D4D4D;
+  margin-bottom: 2rem;
+}
+
+.score{
+  margin-bottom: 10vh;
+}
+
+.score-total{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+

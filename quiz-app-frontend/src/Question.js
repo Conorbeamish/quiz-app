@@ -47,8 +47,8 @@ class Question extends Component {
 
         if(!this.state.answered){
             return(
-                <div>
-                    <h4>{he.decode(this.props.question)}</h4>
+                <div className="question">
+                    <h4 className="question-title">{he.decode(this.props.question)}</h4>
                     <AnswerList 
                         answers={answers} 
                         correct_answer={this.props.correct_answer}
@@ -58,8 +58,8 @@ class Question extends Component {
             )
         } else{
             return(
-                <div>
-                    <h4>{he.decode(this.props.question)}</h4>
+                <div className="question">
+                    <h4 className="question-title">{he.decode(this.props.question)}</h4>
                     <Answer 
                         correct_answer={this.props.correct_answer}
                         correct={this.state.correct}

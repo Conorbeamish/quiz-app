@@ -3,7 +3,7 @@ import he from 'he';
 
 const AnswerList = props => {
     return(
-        <div>
+        <div className="answer-list">
             {props.answers.map((answer) => 
             <button className="answer" name={answer} key={answer} onClick={props.checkAnswer}>
                 {he.decode(answer)}
@@ -12,6 +12,7 @@ const AnswerList = props => {
         </div>
     )
 }
+
 
 
 export default AnswerList
