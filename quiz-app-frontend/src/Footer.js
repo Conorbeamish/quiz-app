@@ -3,7 +3,7 @@ import React from "react";
 const Footer = props => {
     return(
         <div className="footer">
-            by <a href="www.conorbeamish.com">Conor Beamish</a>
+            by <a target="_blank" href="https://conorbeamish.github.io/">Conor Beamish</a>
         </div>
         
 
